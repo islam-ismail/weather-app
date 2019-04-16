@@ -16,32 +16,36 @@ class App extends Component {
   };
 
   getWeather = async e => {
-    e.preventDefault();
-    const city = e.target.elements.city.value;
-    const country = e.target.elements.country.value;
-    const api = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_Key}`
-    );
-    const data = await api.json();
+    try {
+      e.preventDefault();
+      const city = e.target.elements.city.value;
+      const country = e.target.elements.country.value;
+      const api = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_Key}`
+      );
+      const data = await api.json();
 
-    if (city && country) {
-      this.setState({
-        temprature: data.main.temp,
-        city: data.name,
-        country: data.sys.country,
-        humidity: data.main.humidity,
-        description: data.weather[0].description,
-        error: ""
-      });
-    } else {
-      this.setState({
-        temprature: "",
-        city: "",
-        country: "",
-        humidity: "",
-        description: "",
-        error: "Please Enter City and Country"
-      });
+      if (city && country) {
+        this.setState({
+          temprature: data.main.temp,
+          city: data.name,
+          country: data.sys.country,
+          humidity: data.main.humidity,
+          description: data.weather[0].description,
+          error: ""
+        });
+      } else {
+        this.setState({
+          temprature: "",
+          city: "",
+          country: "",
+          humidity: "",
+          description: "",
+          error: "Please Enter City and Country"
+        });
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
