@@ -9,7 +9,7 @@ const Form = props => {
           <input
             type="text"
             className="form-control text-capitalize"
-            placeholder="insert city name"
+            placeholder="insert city name..."
             name="city"
             // value={item}
             // onChange={handleChange}
@@ -18,7 +18,7 @@ const Form = props => {
           <input
             type="text"
             className="form-control text-capitalize"
-            placeholder="insert city name"
+            placeholder="insert country name..."
             name="country"
             // value={item}
             // onChange={handleChange}
