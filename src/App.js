@@ -45,6 +45,14 @@ class App extends Component {
         });
       }
     } catch (error) {
+      this.setState({
+        temprature: "",
+        city: "",
+        country: "",
+        humidity: "",
+        description: "",
+        error: "Please Enter City and Country"
+      });
       console.error(error);
     }
   };
